@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>InfoVis</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sticky-footer-navbar/">
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="assets/css/sticky-footer-navbar.css" rel="stylesheet">
+  
+
+    <style>
+      body {
+          font-family: Sans-serif;
+          font-size: 11px;
+      }
+
+      .slice {
+          cursor: pointer;
+      }
+
+      .slice .main-arc {
+          stroke: #fff;
+          stroke-width: 1px;
+      }
+
+      .slice .hidden-arc {
+          fill: none;
+      }
+
+      .slice text {
+          pointer-events: none;
+          dominant-baseline: middle;
+          text-anchor: middle;
+      }
+    </style>
+
+    <script src='https://d3js.org/d3.v4.min.js'></script>
+    
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+    <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="bar.html">Barchart</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="sunburst.html">Sunburst</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+  
+
+
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+  <div class="container">
+    <script>
+      const width = window.innerWidth,
+          height = window.innerHeight,
+          maxRadius = (Math.min(width, height) / 2) - 5;
+  
+      const formatNumber = d3.format(',d');
+  
+      const x = d3.scaleLinear()
+          .range([0, 2 * Math.PI])
+          .clamp(true);
+  
+      const y = d3.scaleSqrt()
+          .range([maxRadius*.1, maxRadius]);
+  
+      const color = d3.scaleOrdinal(d3.schemeCategory20);
+  
+      const partition = d3.partition();
+  
+      const arc = d3.arc()
+          .startAngle(d => x(d.x0))
+          .endAngle(d => x(d.x1))
+          .innerRadius(d => Math.max(0, y(d.y0)))
+          .outerRadius(d => Math.max(0, y(d.y1)));
+  
+      const middleArcLine = d => {
+          const halfPi = Math.PI/2;
+          const angles = [x(d.x0) - halfPi, x(d.x1) - halfPi];
+          const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
+  
+          const middleAngle = (angles[1] + angles[0]) / 2;
+          const invertDirection = middleAngle > 0 && middleAngle < Math.PI; // On lower quadrants write text ccw
+          if (invertDirection) { angles.reverse(); }
+  
+          const path = d3.path();
+          path.arc(0, 0, r, angles[0], angles[1], invertDirection);
+          return path.toString();
+      };
+  
+      const textFits = d => {
+          const CHAR_SPACE = 6;
+  
+          const deltaAngle = x(d.x1) - x(d.x0);
+          const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
+          const perimeter = r * deltaAngle;
+  
+          return d.data.name.length * CHAR_SPACE < perimeter;
+      };
+  
+      const svg = d3.select('body').append('svg')
+          .style('width', '100vw')
+          .style('height', '100vh')
+          .attr('viewBox', `${-width / 2} ${-height / 2} ${width} ${height}`)
+          .on('click', () => focusOn()); // Reset zoom on canvas click
+  
+      d3.json('https://gist.githubusercontent.com/mbostock/4348373/raw/85f18ac90409caa5529b32156aa6e71cf985263f/flare.json', (error, root) => {
+      // d3.json('https://acsweb.ucsd.edu/~l5sun/projects/infoVis/test.json', (error, root) => {
+        if (error) throw error;
+  
+          root = d3.hierarchy(root);
+          root.sum(d => d.size);
+  
+          const slice = svg.selectAll('g.slice')
+              .data(partition(root).descendants());
+  
+          slice.exit().remove();
+  
+          const newSlice = slice.enter()
+              .append('g').attr('class', 'slice')
+              .on('click', d => {
+                  d3.event.stopPropagation();
+                  focusOn(d);
+              });
+  
+          newSlice.append('title')
+              .text(d => d.data.name + '\n' + formatNumber(d.value));
+  
+          newSlice.append('path')
+              .attr('class', 'main-arc')
+              .style('fill', d => color((d.children ? d : d.parent).data.name))
+              .attr('d', arc);
+  
+          newSlice.append('path')
+              .attr('class', 'hidden-arc')
+              .attr('id', (_, i) => `hiddenArc${i}`)
+              .attr('d', middleArcLine);
+  
+          const text = newSlice.append('text')
+              .attr('display', d => textFits(d) ? null : 'none');
+  
+          // Add white contour
+          text.append('textPath')
+              .attr('startOffset','50%')
+              .attr('xlink:href', (_, i) => `#hiddenArc${i}` )
+              .text(d => d.data.name)
+              .style('fill', 'none')
+              .style('stroke', '#fff')
+              .style('stroke-width', 5)
+              .style('stroke-linejoin', 'round');
+  
+          text.append('textPath')
+              .attr('startOffset','50%')
+              .attr('xlink:href', (_, i) => `#hiddenArc${i}` )
+              .text(d => d.data.name);
+      });
+  
+      function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
+          // Reset to top-level if no data point specified
+  
+          const transition = svg.transition()
+              .duration(750)
+              .tween('scale', () => {
+                  const xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
+                      yd = d3.interpolate(y.domain(), [d.y0, 1]);
+                  return t => { x.domain(xd(t)); y.domain(yd(t)); };
+              });
+  
+          transition.selectAll('path.main-arc')
+              .attrTween('d', d => () => arc(d));
+  
+          transition.selectAll('path.hidden-arc')
+              .attrTween('d', d => () => middleArcLine(d));
+  
+          transition.selectAll('text')
+              .attrTween('display', d => () => textFits(d) ? null : 'none');
+  
+          moveStackToFront(d);
+  
+          //
+  
+          function moveStackToFront(elD) {
+              svg.selectAll('.slice').filter(d => d === elD)
+                  .each(function(d) {
+                      this.parentNode.appendChild(this);
+                      if (d.parent) { moveStackToFront(d.parent); }
+                  })
+          }
+      }
+  </script>
+  </div>
+</main>
+
+<footer class="footer mt-auto py-3">
+  <div class="container">
+    <span class="text-muted"> Private InfoVis</span>
+  </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+</html>
