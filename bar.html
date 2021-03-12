@@ -79,11 +79,11 @@
     d3.tsv("bar.tsv", function(error, data){
     
       // filter year
-      var data = data.filter(function(d){return d.Year == '2012';});
+      // var data = data.filter(function(d){return d.Year == '2012';});
       // Get every column value
       var elements = Object.keys(data[0])
         .filter(function(d){
-          return ((d != "Year") & (d != "State"));
+          return ((d != "Year") & (d != "Category"));
         });
       var selection = elements[0];
     
@@ -94,7 +94,7 @@
           .range([height, 0]);
     
       var x = d3.scale.ordinal()
-          .domain(data.map(function(d){ return d.State;}))
+          .domain(data.map(function(d){ return d.Category;}))
           .rangeBands([0, width]);
     
     

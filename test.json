@@ -94,7 +94,8 @@
      {
       "name": "flex",
       "children": [
-       {"name": "FlareVis", "size": 4116}
+       {"name": "Interest", "size": 1000},
+       {"name": "Profile", "size": 1000}
       ]
      },
      {

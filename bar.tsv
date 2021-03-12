@@ -1,4 +1,4 @@
-Year	State	TotalPopulation	TotalCitizen	TotalRegistered	TotalVoted	HispanicPopulation	HispanicCitizen	HispanicRegistered	HispanicVoted	PercentHispanicPopulation	PercentHispanicRegistered	PercentHispanicVoted
+Year	Category	TotalFriends	TotalPosts	TotalLiked	TotalVoted	TotalLinks	TotalRetweets	TotalPics	Research	LifeEvents	PercentageFemale	Percentage
 2012	ALABAMA	3594.0	3479.0	2556.0	2154.0	107.0	35.0	12.0	0.0	0.029771841958820256	0.004694835680751174	0.0
 2012	ALASKA	516.0	495.0	361.0	289.0	23.0	18.0	10.0	7.0	0.044573643410852716	0.027700831024930747	0.02422145328719723
 2012	ARIZONA	4863.0	4314.0	2812.0	2412.0	1396.0	989.0	516.0	400.0	0.2870655973678799	0.18349928876244664	0.16583747927031509
