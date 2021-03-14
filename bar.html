@@ -78,7 +78,7 @@
     
     d3.tsv("interest.tsv", function(error, data){
       // filter year
-      // var data = data.filter(function(d){return d.Year == '2012';});
+      var data = data.filter(function(d){return d.ID == '0001';});
       // Get every column value
       var elements = Object.keys(data[0])
         .filter(function(d){
