@@ -1,0 +1,53 @@
+{
+    "name": "interest",
+    "children": [
+     {
+      "name": "Politics",
+      "children": [
+       {
+        "name": "California Politics",
+        "children": [
+         {"name": "JoeLaCavaD1", "size": 3938},
+         {"name": "GavinNewsom", "size": 3812},
+         {"name": "Kevin_Faulconer", "size": 6714},
+         {"name": "RepAdamSchiff", "size": 7403}
+        ]
+       },
+       {
+        "name": "Environmental Policy",
+        "children": [
+         {"name": "GretaThunberg", "size": 8938},
+         {"name": "EricHolthaus", "size": 8812},
+         {"name": "drvolts", "size": 6714}
+        ]
+       }
+      ]
+     },
+     {
+        "name": "Entertainment",
+        "children": [
+         {
+          "name": "Comedy",
+          "children": [
+           {"name": "JimGaffigan", "size": 8938},
+           {"name": "mametown", "size": 8812},
+           {"name": "vinn_ayy", "size": 6714}
+          ]
+         }
+        ]
+       },
+       {
+        "name": "Computer Science",
+        "children": [
+         {
+          "name": "Security&Privacy",
+          "children": [
+           {"name": "sweis", "size": 8938},
+           {"name": "random_walker", "size": 8812},
+           {"name": "NicolasPapernot", "size": 6714}
+          ]
+         }
+        ]
+       }
+    ]
+   }

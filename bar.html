@@ -78,13 +78,15 @@
     
     d3.tsv("interest.tsv", function(error, data){
       // filter year
-      var data = data.filter(function(d){return d.User == '01';});
+      var data = data.filter(function(d){return d.ID == '1';});
       // Get every column value
+      console.log(data[0]);
       var elements = Object.keys(data[0])
         .filter(function(d){
-          return ((d != "User") & (d != "Interest"));
+          return ((d != "ID") & (d != "Interest"));
         });
       var selection = elements[0];
+      console.log(selection)
     
       var y = d3.scale.linear()
           .domain([0, d3.max(data, function(d){

@@ -73,12 +73,22 @@
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
   <div class="container">
+
+    <div class="card text-dark bg-light mb-3" style="max-width: 18rem">
+      <!-- <div class="card-header">Header</div> -->
+      <div class="card-body">
+        <h5 class="card-title">Casey</h5>
+        <p class="card-text">Twitter account: @Casey.</p>
+      </div>
+    </div>
+
     <script>
       const width = window.innerWidth,
           height = window.innerHeight,
           maxRadius = (Math.min(width, height) / 2) - 5;
   
-      const formatNumber = d3.format(',d');
+      // const formatNumber = d3.format(',d');
+      const formatNumber = d3.format('.0%');
   
       const x = d3.scaleLinear()
           .range([0, 2 * Math.PI])
@@ -128,7 +138,7 @@
           .on('click', () => focusOn()); // Reset zoom on canvas click
   
       // d3.json('https://gist.githubusercontent.com/mbostock/4348373/raw/85f18ac90409caa5529b32156aa6e71cf985263f/flare.json', (error, root) => {
-      d3.json('test.json', (error, root) => {
+      d3.json('user1.json', (error, root) => {
         if (error) throw error;
   
           root = d3.hierarchy(root);
@@ -147,7 +157,11 @@
               });
   
           newSlice.append('title')
-              .text(d => d.data.name + '\n' + formatNumber(d.value));
+              // .text(d => d.data.name + '\n' + formatNumber(d.value));
+              .text(d => "Inference from the ID: " + "\n" 
+                      + d.leaves().map(d => d.data.name).join("\n")+ "\n" 
+                      + "percentage: "+formatNumber(d.value/80000.0));
+              // .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);
   
           newSlice.append('path')
               .attr('class', 'main-arc')
