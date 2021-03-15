@@ -48,17 +48,6 @@
           ]
          }
         ]
-       },
-       {
-         "name": "Other",
-         "children": [
-          {
-           "name": "Other",
-           "children": [
-            {"name": "sweis", "size": 1000}
-           ]
-          }
-         ]
-        }
+       }
     ]
    }

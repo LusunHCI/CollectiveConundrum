@@ -106,17 +106,6 @@
             ]
            }
          ]
-        },
-       {
-        "name": "Other",
-        "children": [
-         {
-          "name": "Other",
-          "children": [
-           {"name": "other", "size": 1000}
-          ]
-         }
-        ]
-       }
+        }
     ]
    }

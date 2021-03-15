@@ -61,17 +61,6 @@
           ]
          }
         ]
-       },
-       {
-        "name": "Other",
-        "children": [
-         {
-          "name": "Other",
-          "children": [
-           {"name": "other", "size": 2000}
-          ]
-         }
-        ]
        }
     ]
    }
