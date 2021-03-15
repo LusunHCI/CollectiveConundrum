@@ -1,0 +1,77 @@
+{
+    "name": "interest",
+    "children": [
+     {
+      "name": "Computer Science",
+      "children": [
+       {
+        "name": "Security & Privacy",
+        "children": [
+         {"name": "CyLab", "size": 3000},
+         {"name": "lorrietweet", "size": 7000},
+         {"name": "zstevenwu", "size": 6000},
+         {"name": "naz_andalibi", "size": 3000},
+         {"name": "ilyaraz2", "size": 3000}
+        ]
+       },
+       {
+        "name": "AI",
+        "children": [
+         {"name": "michigan_AI", "size": 8000},
+         {"name": "goodfellow_ian", "size": 9000},
+         {"name": "GoogleAI", "size": 6000}
+        ]
+       },
+       {
+        "name": "Data Vis",
+        "children": [
+         {"name": "mathisonian", "size": 3000},
+         {"name": "ProfHollan", "size": 6000},
+         {"name": "domoritz", "size": 3000}
+        ]
+       }
+      ]
+     },
+     {
+        "name": "Health",
+        "children": [
+         {
+          "name": "Mental Health",
+          "children": [
+           {"name": "RuolinWang", "size": 3000},
+           {"name": "Anja Thieme", "size": 6000},
+           {"name": "sushmitalkhan", "size": 3000}
+          ]
+         },
+         {
+          "name": "Bioinformatics",
+          "children": [
+           {"name": "ranjani_r1", "size": 3000},
+           {"name": "2plus2make5", "size": 6000},
+           {"name": "angie_rasmussen", "size": 3000}
+          ]
+         },
+         {
+          "name": "Miscellaneous",
+          "children": [
+           {"name": "andrewkuznet", "size": 3000},
+           {"name": "delmonster_mash", "size": 6000},
+           {"name": "ochealth", "size": 3000},
+           {"name": "Yuxing_Wu_", "size": 3000}
+          ]
+         }
+        ]
+       },
+       {
+        "name": "Other",
+        "children": [
+         {
+          "name": "Other",
+          "children": [
+           {"name": "other", "size": 2000}
+          ]
+         }
+        ]
+       }
+    ]
+   }

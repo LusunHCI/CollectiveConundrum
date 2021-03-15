@@ -160,10 +160,8 @@
             if (node.children != undefined) {
               var arr = []
               for (const a in node.children) {
-                console.log(node.children[a].data.name)
                 arr.push(node.children[a].data.name)
               }
-              console.log(arr)
               return arr.join("\n")
             } else {
               return node.leaves()[0].data.name
@@ -177,7 +175,7 @@
               // + d.leaves().map(d => d.data.name).join("\n")+ "\n"
               // .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);
           
-              console.log(root.children[0].data.name)
+              // console.log(root.children[0].data.name)
           
           newSlice.append('path')
               .attr('class', 'main-arc')
@@ -239,6 +237,11 @@
                       if (d.parent) { moveStackToFront(d.parent); }
                   })
           }
+
+          function labelVisible(d) {
+            return d.y1 <= 3 && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
+          }
+          console.log(d.y1);
       }
   </script>
   </div>

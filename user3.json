@@ -1,0 +1,122 @@
+{
+    "name": "interest",
+    "children": [
+     {
+      "name": "Academia",
+      "children": [
+       {
+        "name": "U of California",
+        "children": [
+         {"name": "UAW2865SD", "size": 2000},
+         {"name": "UCSDneuro", "size": 2000},
+         {"name": "UCSanDiego", "size": 2000},
+         {"name": "OptimistInc", "size":2000},
+         {"name": "ilyaraz2", "size": 2000},
+         {"name": "kc_meehan", "size": 2000},
+         {"name": "ubiquidy75", "size": 2000},
+         {"name": "payusmoreucsc", "size": 2000}
+        ]
+       },
+       {
+        "name": "AI",
+        "children": [
+         {"name": "cephaloponderer", "size": 2000},
+         {"name": "sam_power_825", "size": 2000},
+         {"name": "math_rachel", "size": 2000},
+         {"name": "alvarombedoya", "size": 2000},
+         {"name": "random_walker", "size": 2000},
+         {"name": "radical_ai_", "size": 2000},
+         {"name": "WiMLworkshop", "size": 2000},
+         {"name": "OptimistInc", "size": 2000},
+         {"name": "QuieerInAI", "size": 2000},
+         {"name": "black_in_ai", "size": 2000},
+         {"name": "jovialjoy", "size": 2000},
+         {"name": "CRAtweets", "size": 2000},
+         {"name": "mattpasquinelli", "size": 2000},
+         {"name": "_KarenHao", "size": 2000}
+        ]
+       },
+       {
+        "name": "Miscellaneous",
+        "children": [
+         {"name": "laurenfklein", "size": 2000},
+         {"name": "lmesseri", "size": 2000},
+         {"name": "stakats", "size": 2000},
+         {"name": "CarissaVeliz", "size": 2000}
+        ]
+       }
+      ]
+     },
+     {
+        "name": "Politics/News",
+        "children": [
+         {
+          "name": "California",
+          "children": [
+           {"name": "RepMikeLevin", "size": 3000},
+           {"name": "kstegall33", "size": 3000},
+           {"name": "b_haddy", "size": 3000},
+           {"name": "marxjesse", "size": 3000}
+          ]
+         },
+         {
+          "name": "Misellaneous",
+          "children": [
+           {"name": "cwarzel", "size": 3000},
+           {"name": "JoaquinCastrotx", "size": 3000},
+           {"name": "shane_bauer", "size": 3000},
+           {"name": "_KarenHao", "size": 3000}
+          ]
+         }
+        ]
+       },
+       {
+         "name": "Activism",
+         "children": [
+          {
+           "name": "Miscellaneous",
+           "children": [
+            {"name": "UAW2865SD", "size": 3000},
+            {"name": "twcsandiego", "size": 3000},
+            {"name": "SanDiegoTRUST", "size": 3000},
+            {"name": "islamomarxist", "size": 3000},
+            {"name": "schock", "size": 3000},
+            {"name": "payusmoreucsc", "size": 3000}
+           ]
+          },
+          {
+           "name": "Privacy/Ethics",
+           "children": [
+            {"name": "math_rachel", "size": 3000},
+            {"name": "radical_ai_", "size": 3000},
+            {"name": "jovialjoy", "size": 3000},
+            {"name": "QuieerInAI", "size": 3000},
+            {"name": "black_in_ai", "size": 3000},
+            {"name": "alvarombedoya", "size": 3000},
+            {"name": "ciccolinijulie", "size": 3000}
+           ]
+          },
+          {
+            "name": "Immigration",
+            "children": [
+             {"name": "AFSCSanDiego", "size": 3000},
+             {"name": "CPATSanDiego", "size": 3000},
+             {"name": "Border_Angels", "size": 3000},
+             {"name": "AlOtroLado_Org", "size": 3000}
+            ]
+           }
+         ]
+        },
+       {
+        "name": "Other",
+        "children": [
+         {
+          "name": "Other",
+          "children": [
+           {"name": "other", "size": 1000}
+          ]
+         }
+        ]
+       }
+    ]
+   }
