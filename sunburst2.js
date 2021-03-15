@@ -34,17 +34,17 @@ var returnChildren = function (node) {
     }
 }
 
-d3.json("user2.json").then(function(data){
+d3.json("u2.json").then(function(data){
     console.log(data);
     const root = partition(data);
     const color = d3.scaleOrdinal().range(d3.quantize(d3.interpolateRainbow, data.children.length + 1));
 
     root.each(d => d.current = d);
 
-    const svg = d3.select('#partitionSVG2')
+    const svg = d3.select('#partitionSVGu2')
             .style("width", "100%")
             .style("height", "auto")
-            .style("font", "13px sans-serif");
+            .style("font", "18px sans-serif");
 
     const g = svg.append("g")
             .attr("transform", `translate(${width / 2},${width / 2})`);
