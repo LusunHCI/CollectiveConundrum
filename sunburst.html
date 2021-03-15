@@ -88,7 +88,7 @@
           maxRadius = (Math.min(width, height) / 2) - 5;
   
       // const formatNumber = d3.format(',d');
-      const formatNumber = d3.format('.0%');
+      const formatNumber = d3.format('.2f');
   
       const x = d3.scaleLinear()
           .range([0, 2 * Math.PI])
@@ -172,7 +172,7 @@
           newSlice.append('title')
               .text(d => "Inference from: " + "\n" 
                       + returnChildren(d)+ "\n" 
-                      + "percentage: "+formatNumber(d.value/95200.0));
+                      + "Privacy Impact: "+formatNumber(d.value/89000.0));
               // .text(d => d.data.name + '\n' + formatNumber(d.value));
               // + d.leaves().map(d => d.data.name).join("\n")+ "\n"
               // .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);

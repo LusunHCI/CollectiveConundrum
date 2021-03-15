@@ -7,18 +7,18 @@
        {
         "name": "California Politics",
         "children": [
-         {"name": "JoeLaCavaD1", "size": 3938},
-         {"name": "GavinNewsom", "size": 3812},
-         {"name": "Kevin_Faulconer", "size": 6714},
-         {"name": "RepAdamSchiff", "size": 7403}
+         {"name": "JoeLaCavaD1", "size": 3000},
+         {"name": "GavinNewsom", "size": 3000},
+         {"name": "Kevin_Faulconer", "size": 6000},
+         {"name": "RepAdamSchiff", "size": 7000}
         ]
        },
        {
         "name": "Environmental Policy",
         "children": [
-         {"name": "GretaThunberg", "size": 8938},
-         {"name": "EricHolthaus", "size": 8812},
-         {"name": "drvolts", "size": 6714}
+         {"name": "GretaThunberg", "size": 8000},
+         {"name": "EricHolthaus", "size": 9000},
+         {"name": "drvolts", "size": 6000}
         ]
        }
       ]
@@ -29,9 +29,9 @@
          {
           "name": "Comedy",
           "children": [
-           {"name": "JimGaffigan", "size": 8938},
-           {"name": "mametown", "size": 8812},
-           {"name": "vinn_ayy", "size": 6714}
+           {"name": "JimGaffigan", "size": 8000},
+           {"name": "mametown", "size": 8000},
+           {"name": "vinn_ayy", "size": 6000}
           ]
          }
         ]
@@ -42,12 +42,23 @@
          {
           "name": "Security&Privacy",
           "children": [
-           {"name": "sweis", "size": 8938},
-           {"name": "random_walker", "size": 8812},
-           {"name": "NicolasPapernot", "size": 6714}
+           {"name": "sweis", "size": 9000},
+           {"name": "random_walker", "size": 9000},
+           {"name": "NicolasPapernot", "size": 6000}
           ]
          }
         ]
-       }
+       },
+       {
+         "name": "Other",
+         "children": [
+          {
+           "name": "Other",
+           "children": [
+            {"name": "sweis", "size": 1000}
+           ]
+          }
+         ]
+        }
     ]
    }
